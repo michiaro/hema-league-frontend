@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Amaz2';
+  src: url('amazoostrovv.2-webfont.woff2') format('woff2'),
+    url('amazoostrovv.2-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Amaz';
+  src: url('amazoostrovitalic-webfont.woff2') format('woff2'),
+    url('amazoostrovitalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

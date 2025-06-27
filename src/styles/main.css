@@ -1,28 +1,42 @@
 @import './base.css';
+@import './flexboxgrid.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.title {
+  font-family: 'Amaz', serif;
   font-weight: normal;
+  margin: 0;
 }
 
-a,
+.divider {
+  margin: 7px 0 6px;
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-background);
+}
+
+#app {
+  /* max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal; */
+}
+
+/* a,
 .green {
   text-decoration: none;
   color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
   padding: 3px;
-}
+} */
 
 @media (hover: hover) {
-  a:hover {
+  /* a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
-  }
+  } */
 }
 
 @media (min-width: 1024px) {
-  body {
+  /* body {
     display: flex;
     place-items: center;
   }
@@ -31,5 +45,5 @@ a,
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
-  }
+  } */
 }

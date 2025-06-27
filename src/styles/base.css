@@ -1,0 +1,52 @@
+:root {
+  --white: #F8F8F8;
+
+  --black: #222222;
+
+  --voilet: #6329A8;
+  --voilet-dark: #271042;
+  --voilet-light: #E1CFF5;
+
+  --pink: #FA6BE7;
+  --blue: #9AEAF6;
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--white);
+  --color-background-inverted: var(--black);
+  --color-background-contrast: var(--voilet);
+  --color-background-contrast-dark: var(--voilet-dark);
+  --color-background-contrast-light: var(--voilet-light);
+
+  --color-border: var(--white);
+  --color-border-contrast: var(--voilet-light);
+
+  --color-text: var(--black);
+  --color-text-contrast: var(--white);
+}
+
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+} */
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  line-height: 1.1;
+  font-family: "Geologica", sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings:
+    "slnt" 0,
+    "CRSV" 0,
+    "SHRP" 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
