@@ -237,11 +237,12 @@ onMounted(() => {
   }
 
   &__inner {
-    max-width: 278px;
+    max-width: 290px;
 
     @media screen and (min-width: 1024px) {
-      max-width: 415px;
+      max-width: 425px;
     }
+    // TODO
     // @media screen and (min-width: 1900px) {
     // position: sticky;
     // top: 100px;
