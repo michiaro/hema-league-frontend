@@ -38,7 +38,7 @@
           </span>
         </div>
 
-        <div class="tournament__echelons">
+        <div class="tournament__echelons" v-if="!tournament.satellite">
           <div v-for="echelon in tournament.echelons" :key="echelon" class="tournament__echelon">
             <span class="tournament__echelon-stars">
               <IconStar
@@ -49,6 +49,10 @@
             </span>
             {{ echelon }}
           </div>
+        </div>
+
+        <div class="tournament__satellite" v-else>
+          Результаты не учитываются при&nbsp;подсчете рейтинга
         </div>
 
         <div class="tournament__city">
@@ -138,7 +142,8 @@ const year = computed(() => {
   }
 
   &__date {
-    min-width: 75px;
+    width: 75px;
+    width: 75px;
     text-align: center;
     line-height: 0.97;
     padding: 20px 0 20px 22px;
@@ -146,16 +151,19 @@ const year = computed(() => {
 
     @media screen and (min-width: 800px) {
       background-color: var(--color-background-contrast-light);
-      width: 144px;
+      max-width: 144px;
       padding: 20px;
       display: flex;
       flex-flow: column nowrap;
       justify-content: center;
     }
     @media screen and (min-width: 1400px) {
-      padding: 48px 12px 60px;
+      min-width: 255px;
+      max-width: 255px;
+    }
+    @media screen and (min-width: 1600px) {
       min-width: 272px;
-      width: 272px;
+      max-width: 272px;
     }
   }
 
@@ -223,6 +231,9 @@ const year = computed(() => {
     }
     @media screen and (min-width: 1400px) {
       font-size: 24px;
+      padding: 26px 20px 32px;
+    }
+    @media screen and (min-width: 1600px) {
       padding: 48px 12px 60px;
     }
   }
@@ -288,6 +299,14 @@ const year = computed(() => {
 
     & + & {
       margin-left: 3px;
+    }
+  }
+
+  &__satellite {
+    margin-top: 10px;
+
+    @media screen and (min-width: 1400px) {
+      margin-top: 16px;
     }
   }
   &__city {

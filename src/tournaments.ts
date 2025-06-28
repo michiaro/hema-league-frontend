@@ -259,7 +259,6 @@ export const tournaments : ITournament[] = [
     "city": "Челябинск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -277,7 +276,6 @@ export const tournaments : ITournament[] = [
     "city": "Новосибирск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -427,7 +425,6 @@ export const tournaments : ITournament[] = [
     "city": "Челябинск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -445,7 +442,6 @@ export const tournaments : ITournament[] = [
     "city": "Новосибирск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
