@@ -4,7 +4,7 @@
       :class="['feature__heading', { 'feature__heading--active': isActive }]"
       @click="$emit('onToggle', title, content)"
     >
-      <div class="feature__title title">{{ glueUpPrepositions(title) }}</div>
+      <div class="feature__title title" v-if="title">{{ glueUpPrepositions(title) }}</div>
       <img class="feature__arrows" src="../assets/half-arrows.svg" alt="Открыть" />
 
       <span class="feature__pointer" v-show="isActive"> </span>
@@ -67,7 +67,7 @@ defineProps({
     line-height: 1.1;
     font-size: 24px;
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1600px) {
       font-size: 36px;
     }
   }

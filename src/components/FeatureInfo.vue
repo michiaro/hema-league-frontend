@@ -4,10 +4,10 @@
       <img src="../assets/arrows.svg" alt="Читай подробнее" />
     </div>
     <div class="feature-info__content">
-      <div class="feature-info__title title">
+      <div class="feature-info__title title" v-if="title">
         {{ glueUpPrepositions(title) }}
       </div>
-      <div class="feature-info__text" v-html="glueUpPrepositions(content)" />
+      <div class="feature-info__text" v-if="content" v-html="glueUpPrepositions(content)" />
     </div>
   </div>
 </template>
@@ -31,7 +31,7 @@ defineProps({
   background-size: contain;
   background-repeat: no-repeat;
 
-  padding: 38px 28px;
+  padding: 38px;
   color: var(--color-text-contrast);
   background-color: var(--color-background-contrast);
 
@@ -40,12 +40,24 @@ defineProps({
   align-items: flex-start;
   column-gap: 24px;
 
+  @media screen and (min-width: 1400px) {
+    padding: 38px 28px;
+  }
+
   &__arrows {
-    padding-top: 10px;
+    display: none;
+    @media screen and (min-width: 1400px) {
+      display: block;
+      padding-top: 10px;
+      max-width: 50%;
+    }
   }
 
   &__content {
     @media screen and (min-width: 1400px) {
+      max-width: 66%;
+    }
+    @media screen and (min-width: 1600px) {
       max-width: 50%;
     }
   }
@@ -63,7 +75,7 @@ defineProps({
     font-size: 18px;
     line-height: 1.3;
 
-    @media screen and (min-width: 1400px) {
+    @media screen and (min-width: 1600px) {
       font-size: 24px;
     }
 
