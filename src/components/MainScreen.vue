@@ -118,7 +118,8 @@ const isMobile = computed(() => {
     }
 
     @media screen and (min-width: 1024px) {
-      margin-top: 120px;
+      margin-top: 0;
+      font-size: 68px;
     }
 
     @media screen and (min-width: 1400px) {
@@ -130,8 +131,11 @@ const isMobile = computed(() => {
 
   &__arrows {
     position: absolute;
-    bottom: -5px;
     right: 6px;
+
+    top: 100%;
+    transform: translateY(-100%);
+    line-height: 0;
 
     img {
       width: 100%;
