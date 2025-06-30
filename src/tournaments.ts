@@ -146,7 +146,7 @@ export const tournaments : ITournament[] = [
     "date": "26 октября 2025",
     "title": "Кубок Ярославля",
     "link": "https://vk.com/autumn_hemacup_yar",
-    "nomination": "Английская гимнастическая сабля (команды)",
+    "nomination": "Английская гимнастическая сабля",
     "weekend": false,
     "satellite": true,
     "division": "Центр",
@@ -529,7 +529,7 @@ export const tournaments : ITournament[] = [
   },
   {
     "id": 18,
-    "date": "19 апреля 2025",
+    "date": "19 апреля 2026",
     "nomination": "Австрийская Военная сабля",
     "weekend": false,
     "satellite": false,
@@ -552,8 +552,8 @@ export const tournaments : ITournament[] = [
     "link": "https://vk.com/golden_falcon_junior_tournament",
     "weekend": true,
     "satellite": false,
-    "division": "Урал",
-    "city": "Челябинск",
+    "division": "Сибирь",
+    "city": "Новосибирск",
     "ages": [
       "Взрослые",
     ],
