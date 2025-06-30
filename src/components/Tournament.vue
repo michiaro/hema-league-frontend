@@ -151,6 +151,7 @@ const year = computed(() => {
 
     @media screen and (min-width: 800px) {
       background-color: var(--color-background-contrast-light);
+      min-width: 144px;
       max-width: 144px;
       padding: 20px;
       display: flex;
@@ -212,9 +213,10 @@ const year = computed(() => {
   &__year {
     font-family: 'Amaz2';
     font-size: 24px;
-    color: var(--color-text);
+    color: var(--color-background-contrast-light);
 
     @media screen and (min-width: 800px) {
+      color: var(--color-text);
       font-size: 32px;
     }
     @media screen and (min-width: 1400px) {
@@ -223,18 +225,19 @@ const year = computed(() => {
   }
 
   &__info {
-    margin-left: 16px;
-    padding: 20px 12px;
+    // margin-left: 16px;
+    padding: 20px 24px 20px 28px;
+    width: 100%;
 
     @media screen and (min-width: 800px) {
       // margin-left: 16px;
     }
     @media screen and (min-width: 1400px) {
       font-size: 24px;
-      padding: 26px 20px 32px;
+      padding: 26px 40px 32px 32px;
     }
     @media screen and (min-width: 1600px) {
-      padding: 48px 12px 60px;
+      padding: 48px 40px 60px 32px;
     }
   }
   &__title {
@@ -247,11 +250,20 @@ const year = computed(() => {
     }
   }
   &__link {
-    margin-left: 16px;
+    margin-left: 10px;
+
+    @media screen and (min-width: 1400px) {
+      margin-left: 16px;
+    }
 
     svg {
-      width: 27px;
-      height: 27px;
+      width: 18px;
+      height: 18px;
+
+      @media screen and (min-width: 1400px) {
+        width: 27px;
+        height: 27px;
+      }
     }
   }
   &__nomination {
@@ -311,9 +323,13 @@ const year = computed(() => {
   }
   &__city {
     margin-top: 10px;
+    padding-top: 10px;
+
+    border-top: 2px solid var(--color-background-contrast-light);
 
     @media screen and (min-width: 1400px) {
       margin-top: 16px;
+      padding-top: 16px;
     }
 
     svg {

@@ -71,14 +71,14 @@ export const tournaments : ITournament[] = [
     {
     "id": 23,
     "date": "5 октября 2025",
-    "nomination": "Рапира Ренессанса, команды",
+    "nomination": "Рапира Ренессанса (команды)",
+    "link": "https://vk.com/goldenfalconopenchamp",
     "weekend": false,
     "satellite": true,
     "division": "Урал",
     "city": "Челябинск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -127,14 +127,13 @@ export const tournaments : ITournament[] = [
     "date": "26 октября 2025",
     "title": "Кубок Сибири",
     "link": "https://vk.com/dff_siberian_cup",
-    "nomination": "Рапира Ренессанса, команды",
+    "nomination": "Рапира Ренессанса (команды)",
     "weekend": false,
     "satellite": true,
     "division": "Сибирь",
     "city": "Новосибирск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -147,14 +146,13 @@ export const tournaments : ITournament[] = [
     "date": "26 октября 2025",
     "title": "Кубок Ярославля",
     "link": "https://vk.com/autumn_hemacup_yar",
-    "nomination": "Английская гимнастическая сабля, команды",
+    "nomination": "Английская гимнастическая сабля (команды)",
     "weekend": false,
     "satellite": true,
     "division": "Центр",
     "city": "Ярославль",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -204,11 +202,23 @@ export const tournaments : ITournament[] = [
     "date": "29-30 ноября 2025",
     "title": "Кубок Востока",
     "link": "https://vk.com/hemakidschel",
-    // "nomination": "Фехтшуле, команды",
+    // "nomination": "Фехтшуле (команды)",
     "weekend": true,
     "satellite": false,
     "division": "Урал",
     "city": "Челябинск",
+    "ages": [
+      "Подростки",
+    ],
+  },
+  {
+    "id": 40,
+    "date": "6-7 декабря 2025",
+    "title": "HEMA Panda",
+    "weekend": true,
+    "satellite": false,
+    "division": "Центр",
+    "city": "Ярославль",
     "ages": [
       "Подростки",
     ],
@@ -223,7 +233,6 @@ export const tournaments : ITournament[] = [
     "city": "Челябинск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -241,7 +250,6 @@ export const tournaments : ITournament[] = [
     "city": "Новосибирск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -289,14 +297,13 @@ export const tournaments : ITournament[] = [
     "date": "31-1 января-февраля 2026",
     "title": "Hello Sword",
     "link": "https://vk.com/hellosword",
-    "nomination": "Фехтшуле, команды",
+    "nomination": "Длинный меч, Рапира, Дуэльная сабля, Меч и баклер",
     "weekend": true,
     "satellite": false,
     "division": "Урал",
     "city": "Челябинск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -342,7 +349,7 @@ export const tournaments : ITournament[] = [
     {
     "id": 24,
     "date": "15 февраля 2026",
-    "nomination": "Итальянская дуэльная сабля, команды",
+    "nomination": "Итальянская дуэльная сабля (команды)",
     "weekend": false,
     "satellite": true,
     "division": "Урал",
@@ -360,8 +367,8 @@ export const tournaments : ITournament[] = [
     {
     "id": 22,
     "date": "15 февраля 2026",
-    "title": "Кубок Ярославля",
-    "link": "https://vk.com/autumn_hemacup_yar",
+    "title": "Зимний Кубок Ярославля",
+    "link": "https://vk.com/winter_hemacup_yar",
     "nomination": "Итальянский длинный меч, Дуэльная рапира",
     "weekend": false,
     "satellite": true,
@@ -369,7 +376,6 @@ export const tournaments : ITournament[] = [
     "city": "Ярославль",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -387,7 +393,6 @@ export const tournaments : ITournament[] = [
     "city": "Новосибирск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -400,29 +405,11 @@ export const tournaments : ITournament[] = [
     "date": "22 февраля 2026",
     "title": "Кубок Сибири",
     "link": "https://vk.com/dff_siberian_cup",
-    "nomination": "Итальянская дуэльная сабля, команды",
+    "nomination": "Итальянская дуэльная сабля (команды)",
     "weekend": false,
     "satellite": true,
     "division": "Сибирь",
     "city": "Новосибирск",
-    "ages": [
-      "Взрослые",
-      "Подростки",
-    ],
-    "echelons": [
-      "Начинающие",
-      "Начинающие+",
-      "Общий",
-    ],
-  },
-  {
-    "id": 14,
-    "date": "28 марта 2026",
-    "nomination": "Итальянский длинный меч",
-    "weekend": false,
-    "satellite": false,
-    "division": "Урал",
-    "city": "Челябинск",
     "ages": [
       "Взрослые",
     ],
@@ -454,7 +441,7 @@ export const tournaments : ITournament[] = [
     "date": "15 марта 2026",
     "title": "Кубок Сибири",
     "link": "https://vk.com/dff_siberian_cup",
-    "nomination": "Фехтшуле, команды",
+    "nomination": "Фехтшуле (команды)",
     "weekend": false,
     "satellite": true,
     "division": "Сибирь",
@@ -469,9 +456,26 @@ export const tournaments : ITournament[] = [
       "Общий",
     ],
   },
+  {
+    "id": 14,
+    "date": "28 марта 2026",
+    "nomination": "Итальянский длинный меч",
+    "weekend": false,
+    "satellite": false,
+    "division": "Урал",
+    "city": "Челябинск",
+    "ages": [
+      "Взрослые",
+    ],
+    "echelons": [
+      "Начинающие",
+      "Начинающие+",
+      "Общий",
+    ],
+  },
     {
     "id": 25,
-    "date": "28-29 марта 2026",
+    "date": "29 марта 2026",
     "title": "Кубок Золотого Сокола",
     "link": "https://vk.com/goldenfalconcup",
     "nomination": "Итальянский длинный меч, Фехтшуле",
@@ -499,7 +503,6 @@ export const tournaments : ITournament[] = [
     "city": "Челябинск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -517,7 +520,6 @@ export const tournaments : ITournament[] = [
     "city": "Новосибирск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -535,7 +537,6 @@ export const tournaments : ITournament[] = [
     "city": "Ярославль",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -547,14 +548,14 @@ export const tournaments : ITournament[] = [
     "id": 31,
     "date": "1-3 мая 2026",
     "title": "Молодая Гвардия",
-    "nomination": "Фехтшуле, команды",
+    // "nomination": "Фехтшуле (команды)",
+    "link": "https://vk.com/golden_falcon_junior_tournament",
     "weekend": true,
     "satellite": false,
     "division": "Урал",
     "city": "Челябинск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -571,7 +572,6 @@ export const tournaments : ITournament[] = [
     "city": "Челябинск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -589,7 +589,6 @@ export const tournaments : ITournament[] = [
     "city": "Новосибирск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
