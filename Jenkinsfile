@@ -20,6 +20,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'mkdir ~/.ssh && ssh-keyscan ${ServerIp} >> ~/.ssh/known_hosts'
+        sh 'yarn'
         sh 'yarn build'
       }
     }
