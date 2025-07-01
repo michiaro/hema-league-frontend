@@ -20,13 +20,16 @@
               :title="feature.title"
               :content="feature.content"
               :is-active="feature.title === activeFeature"
-              :is-mobile="isMobile"
             />
           </div>
         </div>
 
-        <div class="col col-xl-9" v-if="!isMobile">
-          <FeatureInfo :title="activeFeature" :content="activeFeatureContent" />
+        <div class="col col-xl-9">
+          <FeatureInfo
+            :title="activeFeature"
+            :content="activeFeatureContent"
+            class="features__feature-info"
+          />
         </div>
       </div>
     </div>
@@ -34,7 +37,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, onMounted, nextTick } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 import Feature from './Feature.vue'
 import FeatureInfo from './FeatureInfo.vue'
 
@@ -81,25 +84,14 @@ const features = ref([
 const activeFeature = ref('')
 const activeFeatureContent = ref('')
 
-const isMobile = computed(() => {
-  return window.innerWidth < 1024
-})
-
-function setActiveFeature(title: string, content: string) {
-  if (!!isMobile.value) {
-    activeFeature.value = activeFeature.value === title ? '' : title
-  } else {
-    activeFeature.value = title
-    activeFeatureContent.value = content
-  }
+function setActiveFeature(title?: string, content?: string) {
+  activeFeature.value = title || features.value[0].title
+  activeFeatureContent.value = content || features.value[0].content
 }
 
 onMounted(() => {
   nextTick(async () => {
-    if (!isMobile.value) {
-      const { title, content } = features.value[0]
-      setActiveFeature(title, content)
-    }
+    setActiveFeature()
   })
 })
 </script>
@@ -139,6 +131,13 @@ onMounted(() => {
 
     @media screen and (min-width: 1400px) {
       width: 609px;
+    }
+  }
+
+  &__feature-info {
+    display: none;
+    @media screen and (min-width: 1024px) {
+      display: block;
     }
   }
 }

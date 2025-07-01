@@ -10,7 +10,7 @@
       <span class="feature__pointer" v-show="isActive"> </span>
     </div>
 
-    <div class="feature__content" v-if="isMobile && isActive">
+    <div class="feature__content" v-if="isActive">
       <div class="feature__close" @click="$emit('onToggle', title, content)">
         <img src="../assets/close.svg" alt="Закрыть" />
       </div>
@@ -21,14 +21,12 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
 import { glueUpPrepositions } from '../utils'
 
 defineProps({
   title: String,
   content: String,
   isActive: Boolean,
-  isMobile: Boolean,
 })
 </script>
 
@@ -136,6 +134,10 @@ defineProps({
     background-position: top right;
     background-size: 346px auto;
     background-repeat: no-repeat;
+
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
   }
 
   &__close {
