@@ -10,13 +10,16 @@
         <img alt="Logo" class="header__logo" src="../assets/logo-badge.svg" width="70" />
         <div class="header__title title">HEMA League</div>
 
-        <Divisions v-show="!isMobile" class="header__divisions" />
+        <Divisions class="header__divisions" />
       </div>
 
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
-            <h1 class="main-screen__title title">Серия региональных рейтинговых турниров</h1>
+            <h1 class="main-screen__title title">
+              Серия региональных <br />
+              рейтинговых турниров
+            </h1>
           </div>
         </div>
 
@@ -26,9 +29,9 @@
           </div>
         </div>
 
-        <div class="row" v-show="isMobile">
+        <div class="row">
           <div class="col-xs-6 col-xs-offset-6 col-sm-5 col-sm-offset-1">
-            <Divisions />
+            <Divisions class="main-screen__divisions" />
           </div>
         </div>
       </div>
@@ -43,12 +46,6 @@
 <script lang="ts" setup>
 import Timer from './Timer.vue'
 import Divisions from './Divisions.vue'
-
-import { computed } from 'vue'
-
-const isMobile = computed(() => {
-  return window.innerWidth <= 640
-})
 </script>
 
 
@@ -153,6 +150,13 @@ const isMobile = computed(() => {
       margin-top: 74px;
     }
   }
+
+  &__divisions {
+    display: block;
+    @media screen and (min-width: 640px) {
+      display: none;
+    }
+  }
 }
 
 .header {
@@ -168,9 +172,6 @@ const isMobile = computed(() => {
     justify-content: space-between;
     margin-bottom: 46px;
   }
-  // @media screen and (min-width: 1600px) {
-  //   margin-bottom: 54px;
-  // }
 
   &__title {
     font-size: 24px;
@@ -203,6 +204,10 @@ const isMobile = computed(() => {
   }
 
   &__divisions {
+    display: none;
+    @media screen and (min-width: 640px) {
+      display: block;
+    }
     @media screen and (min-width: 1400px) {
       margin: 0;
       margin-top: 38px;
