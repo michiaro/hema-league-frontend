@@ -4,26 +4,26 @@
 
     <div class="timer__body">
       <span class="timer__time">
-        <div class="timer__item timer__item--days">
+        <div class="timer__item timer__item--narrow">
           <span class="timer__number" id="days">{{ days }}</span>
           <div class="timer__caption">дней</div>
         </div>
 
         <div class="timer__divider">:</div>
 
-        <div class="timer__item timer__item--hours">
+        <div class="timer__item timer__item--narrow">
           <span class="timer__number" id="hours"> {{ hours }} </span>
           <div class="timer__caption">часов</div>
         </div>
         <div class="timer__divider">:</div>
 
-        <div class="timer__item timer__item--minutes">
+        <div class="timer__item timer__item--wide">
           <span class="timer__number" id="minutes"> {{ minutes }} </span>
           <div class="timer__caption">минут</div>
         </div>
         <div class="timer__divider">:</div>
 
-        <div class="timer__item timer__item--seconds">
+        <div class="timer__item timer__item--wide">
           <span class="timer__number" id="seconds"> {{ seconds }} </span>
           <div class="timer__caption">секунд</div>
         </div>
@@ -105,6 +105,7 @@ onMounted(() => {
     padding: 12px;
     clip-path: polygon(10% 0, 100% 0, 100% 83%, 90% 100%, 0 100%, 0 17%);
     background-color: var(--color-background-inverted);
+    text-align: center;
 
     @media screen and (min-width: 1600px) {
       width: 1078px;
@@ -114,20 +115,36 @@ onMounted(() => {
     }
   }
   &__time {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
   }
   &__item {
+    display: inline-block;
     text-align: center;
 
-    &--days {
+    &--narrow {
+      width: 60px;
+
+      @media screen and (min-width: 560px) {
+        width: 80px;
+      }
+      @media screen and (min-width: 800px) {
+        width: 100px;
+      }
+      @media screen and (min-width: 1600px) {
+        width: 180px;
+      }
     }
-    &--hours {
-    }
-    &--minutes {
-    }
-    &--seconds {
+    &--wide {
+      width: 80px;
+
+      @media screen and (min-width: 560px) {
+        width: 106px;
+      }
+      @media screen and (min-width: 800px) {
+        width: 150px;
+      }
+      @media screen and (min-width: 1600px) {
+        width: 230px;
+      }
     }
   }
   &__number {
@@ -160,10 +177,10 @@ onMounted(() => {
     }
   }
   &__divider {
-    font-size: 56px;
+    display: inline-block;
     font-family: 'Amaz2';
-    margin: 0 12px;
-    transform: translateY(-5px);
+    font-size: 56px;
+    transform: translateY(-35%);
 
     @media screen and (min-width: 560px) {
       font-size: 64px;
@@ -171,13 +188,8 @@ onMounted(() => {
     @media screen and (min-width: 800px) {
       font-size: 96px;
     }
-    @media screen and (min-width: 1024px) {
-      margin: 0 24px;
-    }
-
     @media screen and (min-width: 1600px) {
       font-size: 136px;
-      margin: 0 34px;
     }
   }
 }
