@@ -356,7 +356,6 @@ export const tournaments : ITournament[] = [
     "city": "Челябинск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -448,7 +447,6 @@ export const tournaments : ITournament[] = [
     "city": "Новосибирск",
     "ages": [
       "Взрослые",
-      "Подростки",
     ],
     "echelons": [
       "Начинающие",
@@ -478,7 +476,7 @@ export const tournaments : ITournament[] = [
     "date": "29 марта 2026",
     "title": "Кубок Золотого Сокола",
     "link": "https://vk.com/goldenfalconcup",
-    "nomination": "Итальянский длинный меч, Фехтшуле",
+    "nomination": "Кодекс Валлерштайна, Фехтшуле",
     "weekend": true,
     "satellite": true,
     "division": "Урал",
