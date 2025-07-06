@@ -17,6 +17,7 @@
               :key="feature.title"
               :class="['feature', { 'feature--active': feature.title === activeFeature }]"
               @onToggle="(title, content) => setActiveFeature(title, content)"
+              @onClose="closeFeatureInfo"
               :title="feature.title"
               :content="feature.content"
               :is-active="feature.title === activeFeature"
@@ -37,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, nextTick } from 'vue'
+import { ref, onMounted, nextTick, computed } from 'vue'
 import Feature from './Feature.vue'
 import FeatureInfo from './FeatureInfo.vue'
 
@@ -84,9 +85,22 @@ const features = ref([
 const activeFeature = ref('')
 const activeFeatureContent = ref('')
 
+const isMobile = computed(() => {
+  return window.innerWidth < 1024
+})
+
+function closeFeatureInfo() {
+  activeFeature.value = ''
+  activeFeatureContent.value = ''
+}
+
 function setActiveFeature(title?: string, content?: string) {
-  activeFeature.value = title || features.value[0].title
-  activeFeatureContent.value = content || features.value[0].content
+  if (activeFeature.value === title && activeFeatureContent.value === content && isMobile.value) {
+    closeFeatureInfo()
+  } else {
+    activeFeature.value = title || features.value[0].title
+    activeFeatureContent.value = content || features.value[0].content
+  }
 }
 
 onMounted(() => {

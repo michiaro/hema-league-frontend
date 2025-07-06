@@ -11,7 +11,7 @@
     </div>
 
     <div class="feature__content" v-if="isActive">
-      <div class="feature__close" @click="$emit('onToggle', title, content)">
+      <div class="feature__close" @click="$emit('onClose')">
         <img src="../assets/close.svg" alt="Закрыть" />
       </div>
 
