@@ -41,7 +41,7 @@ const minutes = ref(0)
 const seconds = ref(0)
 
 const year = new Date().getFullYear()
-const registrationStart = new Date(year, 6, 14).getTime()
+const registrationStart = new Date(year, 6, 16).getTime()
 
 const startTimer = () =>
   setInterval(() => {
