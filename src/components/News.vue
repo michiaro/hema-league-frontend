@@ -9,12 +9,19 @@
         <div class="col col-xs-12 col-xl-6">
           <div class="news__content">
             <p>
-              Полные правила для каждого снаряда читайте
+              Полные правила для каждого снаряда читай
               <a class="news__link" href="https://hema-magisterium.ru/rules" target="_blank">
                 по&nbsp;ссылке</a
               >.
               <br />
-              Правила расчета рейтинга опубликуем в день открытия регистрации.
+              Правила расчета рейтинга и другие важные моменты читай
+              <a
+                class="news__link"
+                href="https://purlakpv.github.io/fencing-brain/"
+                target="_blank"
+              >
+                в&nbsp;положении</a
+              >.
             </p>
             <p>
               Следи за обновлениями и подписывайся на нас ВКонтакте, чтобы быть в курсе всех
