@@ -25,7 +25,16 @@
 
         <div class="row">
           <div class="col-xs-12">
-            <Timer class="main-screen__timer" />
+            <div class="main-screen__registration">
+              <div class="main-screen__registration-title">Регистрация открыта</div>
+              <a
+                href="https://t.me/gf_fencing_bot"
+                target="_blank"
+                class="main-screen__registration-button button"
+              >
+                Подать заявку
+              </a>
+            </div>
           </div>
         </div>
 
@@ -44,7 +53,6 @@
 </template>
 
 <script lang="ts" setup>
-import Timer from './Timer.vue'
 import Divisions from './Divisions.vue'
 </script>
 
@@ -143,11 +151,31 @@ import Divisions from './Divisions.vue'
     }
   }
 
-  &__timer {
-    margin-top: 48px;
+  &__registration {
+    margin-top: 6vh;
+    text-align: center;
 
-    @media screen and (min-width: 820px) {
-      margin-top: 74px;
+    @media screen and (min-width: 1024px) {
+      margin-top: 8vh;
+    }
+  }
+  &__registration-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 560px) {
+      font-size: 24px;
+    }
+    @media screen and (min-width: 1024px) {
+      font-size: 36px;
+    }
+  }
+  &__registration-button {
+    margin-top: 16px;
+
+    @media screen and (min-width: 1024px) {
+      margin-top: 24px;
     }
   }
 
