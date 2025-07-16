@@ -17,7 +17,7 @@
               Правила расчета рейтинга и другие важные моменты читай
               <a
                 class="news__link"
-                href="https://purlakpv.github.io/fencing-brain/"
+                href="https://purlakpv.github.io/fencing-brain/regulations/Hema-League"
                 target="_blank"
               >
                 в&nbsp;положении</a
