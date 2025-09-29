@@ -242,12 +242,12 @@ export const tournaments : ITournament[] = [
   },
   {
     "id": 8,
-    "date": "20 декабря 2025",
-    "nomination": "Рапира Ренессанса (дага)",
+    "date": "18 января 2026",
+    "nomination": "Длинный меч",
     "weekend": false,
     "satellite": false,
-    "division": "Сибирь",
-    "city": "Новосибирск",
+    "division": "Урал",
+    "city": "Челябинск",
     "ages": [
       "Взрослые",
     ],
@@ -259,12 +259,12 @@ export const tournaments : ITournament[] = [
   },
   {
     "id": 9,
-    "date": "18 января 2026",
-    "nomination": "Длинный меч",
+    "date": "24 января 2025",
+    "nomination": "Рапира Ренессанса (дага)",
     "weekend": false,
     "satellite": false,
-    "division": "Урал",
-    "city": "Челябинск",
+    "division": "Сибирь",
+    "city": "Новосибирск",
     "ages": [
       "Взрослые",
     ],
