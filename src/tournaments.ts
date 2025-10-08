@@ -13,7 +13,7 @@ interface ITournament {
 }
 
 
-export const tournaments : ITournament[] = [
+export const tournaments: ITournament[] = [
   {
     "id": 0,
     "date": "13 сентября 2025",
@@ -68,7 +68,7 @@ export const tournaments : ITournament[] = [
       "Общий",
     ],
   },
-    {
+  {
     "id": 23,
     "date": "5 октября 2025",
     "nomination": "Рапира Ренессанса (команды)",
@@ -122,7 +122,7 @@ export const tournaments : ITournament[] = [
       "Общий",
     ],
   },
-    {
+  {
     "id": 26,
     "date": "26 октября 2025",
     "title": "Кубок Сибири",
@@ -141,7 +141,7 @@ export const tournaments : ITournament[] = [
       "Общий",
     ],
   },
-    {
+  {
     "id": 21,
     "date": "26 октября 2025",
     "title": "Кубок Ярославля",
@@ -197,7 +197,7 @@ export const tournaments : ITournament[] = [
       "Общий",
     ],
   },
-    {
+  {
     "id": 29,
     "date": "29-30 ноября 2025",
     "title": "Кубок Востока",
@@ -259,7 +259,7 @@ export const tournaments : ITournament[] = [
   },
   {
     "id": 9,
-    "date": "24 января 2025",
+    "date": "24 января 2026",
     "nomination": "Рапира Ренессанса (дага)",
     "weekend": false,
     "satellite": false,
@@ -291,7 +291,7 @@ export const tournaments : ITournament[] = [
       "Общий",
     ],
   },
-// TODO
+  // TODO
   {
     "id": 30,
     "date": "31-1 января-февраля 2026",
@@ -346,7 +346,7 @@ export const tournaments : ITournament[] = [
       "Общий",
     ],
   },
-    {
+  {
     "id": 24,
     "date": "15 февраля 2026",
     "nomination": "Итальянская дуэльная сабля (команды)",
@@ -363,7 +363,7 @@ export const tournaments : ITournament[] = [
       "Общий",
     ],
   },
-    {
+  {
     "id": 22,
     "date": "15 февраля 2026",
     "title": "Зимний Кубок Ярославля",
@@ -399,7 +399,7 @@ export const tournaments : ITournament[] = [
       "Общий",
     ],
   },
-    {
+  {
     "id": 27,
     "date": "22 февраля 2026",
     "title": "Кубок Сибири",
@@ -435,7 +435,7 @@ export const tournaments : ITournament[] = [
       "Общий",
     ],
   },
-    {
+  {
     "id": 28,
     "date": "15 марта 2026",
     "title": "Кубок Сибири",
@@ -471,7 +471,7 @@ export const tournaments : ITournament[] = [
       "Общий",
     ],
   },
-    {
+  {
     "id": 25,
     "date": "29 марта 2026",
     "title": "Кубок Золотого Сокола",
@@ -542,7 +542,7 @@ export const tournaments : ITournament[] = [
       "Общий",
     ],
   },
-    {
+  {
     "id": 31,
     "date": "1-3 мая 2026",
     "title": "Молодая Гвардия",
