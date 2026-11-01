@@ -1,63 +1,125 @@
-pipeline {
-  agent {
-    docker {
-      image 'cimmwolf/vistro:3'
-      args '-u root:root'
+/*
+ * Every branch and tag type-checks and builds one release artifact. A branch deploys it to the sandbox
+ * (https://hema-league.ru:8000), a version tag (2026.01.14, v1.2.3-2) to production.
+ *
+ * Requires the Docker Pipeline, Lockable Resources, SSH Agent, Credentials Binding, Git and Workspace
+ * Cleanup plugins, an agent with Docker and the tag build strategy of Basic Branch Build Strategies.
+ */
+
+// Runs build and deployment commands with Node.js, Yarn and SSH.
+def insideCi(Closure body) {
+  docker.image('cimmwolf/vistro:3').inside('-u root:root') {
+    try {
+      body()
+    } finally {
+      // Files created by root must stay removable by the Jenkins agent.
+      sh 'chown -R "$(stat -c %u:%g .)" .'
     }
   }
+}
+
+def isProductionTag() {
+  return env.TAG_NAME && env.TAG_NAME ==~ /v?\d+\.\d+\.\d+.*/
+}
+
+// Uploads the stashed artifact with deploy.sh to the sandbox or production.
+def deployTo(String environment) {
+  unstash 'artifact'
+  lock("hema-league-${environment}") {
+    def releaseId = sh(returnStdout: true, script: "date -u '+%Y%m%d%H%M%S'").trim()
+    withEnv(["RELEASE_ID=${releaseId}"]) {
+      insideCi {
+        sshagent(credentials: [env.SSH_CREDENTIALS]) {
+          withCredentials([file(credentialsId: env.KNOWN_HOSTS_CREDENTIALS, variable: 'KNOWN_HOSTS')]) {
+            sh "./deploy.sh \"\$ARTIFACT\" ${environment}"
+          }
+        }
+      }
+    }
+    currentBuild.description = "${currentBuild.description} → ${environment} ${releaseId}"
+  }
+}
+
+pipeline {
+  agent none
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '30'))
+  }
   environment {
-    BuildEnv      = "${env.TAG_NAME && env.TAG_NAME ==~ /v?\d+\.\d+\.\d+.*/ ? "production" : "sandbox"}"
-    ServerIp      = "78.155.197.111"
-    BasePath      = "/var/www/${BuildEnv}/hema-league.ru"
-    RemoteMachine = "deploy@${ServerIp}"
-    ReleaseDate   = """${sh(
-                            returnStdout: true,
-                            script: 'echo $(date "+%Y%m%d%H%M%S")'
-                        ).trim()}"""
-    ReleasePath   = "${BasePath}/releases/${ReleaseDate}"
+    // vistro-26 (Hosts/Vistro/bootstrap.sh), shared with eco74.com, CRM_GF, BPM and DSystem.
+    DEPLOY_HOST             = 'deploy@45.66.118.106'
+    SSH_CREDENTIALS         = 'c98cafdc-9af0-4637-b970-6cc7f2305852'
+    // Secret file with the known_hosts line of the server's ED25519 key.
+    KNOWN_HOSTS_CREDENTIALS = 'dsystem-known-hosts'
+    ARTIFACT                = 'hema-league.ru.tar.gz'
   }
   stages {
     stage('Build') {
-      steps {
-        sh 'mkdir ~/.ssh && ssh-keyscan ${ServerIp} >> ~/.ssh/known_hosts'
-        sh 'yarn'
-        sh 'yarn build'
+      agent any
+      stages {
+        stage('Test') {
+          steps {
+            insideCi {
+              sh 'yarn install --frozen-lockfile --non-interactive'
+              // ESLint is not run yet: the code does not pass it.
+              sh 'yarn type-check'
+            }
+          }
+        }
+        stage('Package') {
+          steps {
+            script {
+              currentBuild.description = env.GIT_COMMIT.take(8)
+            }
+            insideCi {
+              sh 'yarn build-only'
+              // The root of the archive becomes the release directory, which nginx must be able to read.
+              sh '''
+                cp nginx.conf dist/nginx.conf
+                chmod 755 dist
+                tar -czf "$ARTIFACT" -C dist .
+              '''
+            }
+            stash name: 'artifact', includes: env.ARTIFACT
+          }
+        }
+      }
+      post {
+        always {
+          cleanWs()
+        }
       }
     }
-    stage('Prepare for prod') {
+    stage('Sandbox') {
       when {
-        environment name: 'BuildEnv', value: 'production'
+        // Decide before an agent and a checkout are taken for nothing.
+        beforeAgent true
+        expression { !env.CHANGE_ID && !env.TAG_NAME }
       }
+      agent any
       steps {
-        sh 'sed -i -e "s/listen 8000/listen 443/g" nginx.conf'
-        sh 'sed -i -e "s/listen 8080/listen 80/g" nginx.conf'
-        sh 'sed -i -e "s:/sandbox/:/production/:g" nginx.conf'
+        deployTo('sandbox')
       }
-    }
-    stage('Deploy') {
-      steps {
-        sshagent(credentials: ['c98cafdc-9af0-4637-b970-6cc7f2305852']) {
-          sh "ssh $RemoteMachine mkdir -p ${BasePath}/releases ${BasePath}/logs ${BasePath}/shared"
-
-          sh "rsync -rlzv --delete --link-dest=${BasePath}/current ./dist/ ${RemoteMachine}:${ReleasePath}"
-          sh "scp nginx.conf ${RemoteMachine}:${BasePath}"
+      post {
+        always {
+          cleanWs()
         }
       }
     }
-    stage('Clean & restart') {
+    stage('Production') {
+      when {
+        beforeAgent true
+        expression { isProductionTag() }
+      }
+      agent any
       steps {
-        sshagent(credentials: ['c98cafdc-9af0-4637-b970-6cc7f2305852']) {
-          sh "ssh $RemoteMachine ln -vfn -s ${ReleasePath} ${BasePath}/current"
-          sh "ssh $RemoteMachine 'cd ${BasePath}/releases && ls -1r | tail -n +2 | xargs rm -rf'"
-          sh "ssh $RemoteMachine 'sudo nginx -t && sudo service nginx restart'"
+        deployTo('production')
+      }
+      post {
+        always {
+          cleanWs()
         }
       }
-    }
-  }
-  post {
-    always {
-      sh "chown -R ${JENKINS_UID}:${JENKINS_GID} ./"
-      cleanWs()
     }
   }
 }
